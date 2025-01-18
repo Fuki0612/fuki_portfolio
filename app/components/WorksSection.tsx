@@ -7,37 +7,37 @@ import Image from 'next/image'
 const works = [
   {
     title: 'Lights Out',
-    description: '自力で作品を作りたいと思い，1年の秋に作製．今見るとお粗末な出来ですね．',
+    description: '自力で作品を作りたいと思い、1年の秋に作製。今見るとお粗末な出来ですね。',
     technologies: ['HTML', 'CSS', 'javascript'],
     icon: '/icons/Lightsout_ico.ico',
   },
   {
     title: 'OXゲーム',
-    description: '大学の講義で作ったC言語のCLIのOXゲームをjavascriptでGUI化したものです．',
+    description: '大学の講義で作ったC言語のCLIのOXゲームをjavascriptでGUI化したものです。',
     technologies: ['HTML', 'CSS', 'javascript','C'],
     icon: '/icons/ox.png',
   },
   {
     title: 'fifteel',
-    description: '1年次に参加したJPhacksで作成した作品．主にchrome拡張機能を作成しました．',
+    description: '1年次に参加したJPhacksで作成した作品。主にchrome拡張機能を作成しました。',
     technologies: ['javascript', 'Python', 'LLM', 'chrome拡張'],
     icon: '/icons/fifteel.png',
   },
   {
     title: 'FAST PENGUIN',
-    description: '2年5月のサークルのハッカソンで作成した作品．Unityを使って作成しました．',
+    description: '2年5月のサークルのハッカソンで作成した作品。Unityを使って作成しました。',
     technologies: ['C#','Unity'],
     icon: '/icons/penguinIcon.png',
   },
   {
     title: 'POP TURN',
-    description: '2年次に参加したJP HACKSで作成した作品．主にフロントエンドを担当しました．',
+    description: '2年次に参加したJP HACKSで作成した作品。主にフロントエンドを担当しました。',
     technologies: ['firebase', 'chatgpt', 'python', 'typescript','Next.js'],
     icon: '/icons/pop.png',
   },
   //{
   //  title: 'スマート名刺',
-  //  description: 'NFCタグにポートフォリオサイトのURLを埋め込み，シールを貼って名刺にしたものです．',
+  //  description: 'NFCタグにポートフォリオサイトのURLを埋め込み、シールを貼って名刺にしたものです。',
   //  technologies: ['typescript','Next.js'],
   //  icon: '/placeholder.svg',
   //},

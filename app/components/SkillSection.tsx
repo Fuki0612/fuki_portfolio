@@ -68,7 +68,7 @@ const SkillSection: React.FC = () => {
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   className={`bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center ${skill.invisible ? 'invisible' : ''}`}
                 >
-                  <div className="bg-gray-700 rounded-full p-6 mb-3 hover:bg-gray-600 transition-colors duration-300">
+                  <div className="bg-gray-700 rounded-full p-6 mb-3 transition-colors duration-300">
                     <Image
                       src={skill.icon || "/placeholder.svg"}
                       alt={skill.name}
@@ -85,7 +85,7 @@ const SkillSection: React.FC = () => {
           <div className="mt-6 flex justify-between items-center">
             <button
               onClick={prevPage}
-              className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
+              className="bg-gray-70 text-white p-2 rounded-full transition-colors duration-300"
               aria-label="Previous skills"
             >
               <ChevronLeft size={24} />
@@ -104,7 +104,7 @@ const SkillSection: React.FC = () => {
             </div>
             <button
               onClick={nextPage}
-              className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
+              className="bg-gray-700 text-white p-2 rounded-full transition-colors duration-300"
               aria-label="Next skills"
             >
               <ChevronRight size={24} />
@@ -121,7 +121,6 @@ const SkillSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-gray-800 rounded-lg p-6 flex flex-col items-center"
-              whileHover={{ scale: 1.05, backgroundColor: '#2d3748' }}
             >
               <Image
                 src={skill.icon || "/placeholder.svg"}
