@@ -35,9 +35,17 @@ const HomeSection: React.FC = () => {
         variants={itemVariants}
         className={`${PlayfairDisplayFont.className} text-white text-6xl md:text-9xl font-extrabold mb-6 tracking-tight leading-tight`}
       >
-        Welcome to<br/>
-        Fuki Nakamura<br/>
-        Portfolio
+        {['Welcome to', 'Fuki Nakamura', 'Portfolio'].map((line, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.5 }}
+            className="block"
+          >
+            {line}
+          </motion.span>
+        ))}
       </motion.h2>
       <motion.p 
         variants={itemVariants}

@@ -116,13 +116,13 @@ export default function Home() {
 
   return (
     <div className="h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
+      <Navigation sections={sections} currentSection={currentSection} scrollToSection={scrollToSection} />
       <div 
         ref={containerRef}
-        className="h-full relative"
+        className="h-full relative pt-0 md:pt-16" 
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <Navigation sections={sections} currentSection={currentSection} scrollToSection={scrollToSection} />
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentSection}
@@ -132,7 +132,7 @@ export default function Home() {
             animate="in"
             exit="out"
             transition={pageTransition}
-            className="absolute inset-0 flex items-center justify-center py-32 md:py-64"
+            className="absolute inset-0 flex items-center justify-center py-16 md:py-32" 
           >
             {React.createElement(sections[currentSection].Component)}
           </motion.div>
@@ -141,3 +141,4 @@ export default function Home() {
     </div>
   )
 }
+

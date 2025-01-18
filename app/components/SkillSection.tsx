@@ -5,18 +5,22 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { PlayfairDisplayFont, ShipporiMinchoFont } from '../font'
 
 const skills = [
-  { name: 'HTML', icon: '/icons/html.svg' },
-  { name: 'JavaScript', icon: '/icons/javascript.svg' },
-  { name: 'C', icon: '/icons/c.svg' },
-  { name: 'Python', icon: '/icons/python.svg' },
-  { name: 'React', icon: '/icons/react.svg' },
-  { name: 'Git,Github', icon: '/icons/git.svg' },
-  { name: 'CSS', icon: '/icons/html.svg' },
-  { name: 'TypeScript', icon: '/icons/typescript.svg' },
-  { name: 'C++', icon: '/icons/cpp.svg' },
-  { name: 'Dart', icon: '/icons/dart.svg' },
-  { name: 'Flutter', icon: '/icons/flutter.svg' },
-  { name: 'VSCode', icon: '/icons/vscode.svg' },
+  { name: 'HTML', icon: '/icons/html.png' },
+  { name: 'CSS', icon: '/icons/css.png' },
+  { name: 'JavaScript', icon: '/icons/JS.png' },
+  { name: 'TypeScript', icon: '/icons/TS.png' },
+  { name: 'C', icon: '/icons/c.png' },
+  { name: 'C++', icon: '/icons/c++.png' },
+  { name: 'Python', icon: '/icons/python.png' },
+  { name: 'Dart', icon: '/icons/dart.png' },
+  { name: 'React', icon: '/icons/react.png' },
+  { name: 'Next.js', icon: '/icons/next.png' },
+  { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
+  { name: 'Flutter', icon: '/icons/flutter.png' },
+  { name: 'VSCode', icon: '/icons/vscode.png' },
+  { name: 'Git Github', icon: '/icons/github.png' },
+  { name: 'invisible1', icon: '', invisible: true },
+  { name: 'invisible2', icon: '', invisible: true },
 ]
 
 const SkillSection: React.FC = () => {
@@ -44,6 +48,7 @@ const SkillSection: React.FC = () => {
     >
       <h2 className={`${PlayfairDisplayFont.className} text-white text-4xl md:text-6xl font-bold mb-4`}>My Skills</h2>
       <div className="w-full max-w-7xl mx-auto">
+
         {/* Mobile version with navigation */}
         <div className="md:hidden px-4">
           <AnimatePresence mode="wait">
@@ -61,7 +66,7 @@ const SkillSection: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center"
+                  className={`bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center ${skill.invisible ? 'invisible' : ''}`}
                 >
                   <div className="bg-gray-700 rounded-full p-6 mb-3 hover:bg-gray-600 transition-colors duration-300">
                     <Image
@@ -77,7 +82,7 @@ const SkillSection: React.FC = () => {
               ))}
             </motion.div>
           </AnimatePresence>
-          <div className="flex justify-between items-center mt-6 mb-4">
+          <div className="mt-6 flex justify-between items-center">
             <button
               onClick={prevPage}
               className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
@@ -85,6 +90,18 @@ const SkillSection: React.FC = () => {
             >
               <ChevronLeft size={24} />
             </button>
+            <div className="flex justify-center space-x-2">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(index)}
+                  className={`w-3 h-3 rounded-full ${
+                    index === currentPage ? 'bg-blue-600' : 'bg-gray-600'
+                  }`}
+                  aria-label={`Go to skills page ${index + 1}`}
+                />
+              ))}
+            </div>
             <button
               onClick={nextPage}
               className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
@@ -93,39 +110,26 @@ const SkillSection: React.FC = () => {
               <ChevronRight size={24} />
             </button>
           </div>
-          <div className="mt-2 flex justify-center space-x-2 mb-4">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentPage(index)}
-                className={`w-3 h-3 rounded-full ${
-                  index === currentPage ? 'bg-blue-600' : 'bg-gray-600'
-                }`}
-                aria-label={`Go to skills page ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
 
         {/* Desktop version with all skills displayed */}
-        <div className="hidden md:grid grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
-          {skills.map((skill, index) => (
+        <div className="hidden md:grid grid-cols-3 lg:grid-cols-7 gap-6 md:gap-8">
+          {skills.filter(skill => !skill.invisible).map((skill, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-gray-800 rounded-lg p-6 flex flex-col items-center"
+              whileHover={{ scale: 1.05, backgroundColor: '#2d3748' }}
             >
-              <div className="bg-gray-700 rounded-full p-8 mb-4 hover:bg-gray-600 transition-colors duration-300">
-                <Image
-                  src={skill.icon || "/placeholder.svg"}
-                  alt={skill.name}
-                  width={96}
-                  height={96}
-                  className="w-24 h-24"
-                />
-              </div>
+              <Image
+                src={skill.icon || "/placeholder.svg"}
+                alt={skill.name}
+                width={96}
+                height={96}
+                className="w-24 h-24 rounded-full mb-4 transition-colors duration-300 bg-gray-800"
+              />
               <h3 className="text-white text-xl font-bold">{skill.name}</h3>
             </motion.div>
           ))}

@@ -2,33 +2,45 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { PlayfairDisplayFont, ShipporiMinchoFont } from '../font'
+import Image from 'next/image'
 
 const works = [
   {
     title: 'Lights Out',
     description: '自力で作品を作りたいと思い，1年の秋に作製．今見るとお粗末な出来ですね．',
     technologies: ['HTML', 'CSS', 'javascript'],
+    icon: '/icons/Lightsout_ico.ico',
   },
   {
     title: 'OXゲーム',
-    description: '大学の講義で作ったC言語のCLIのOXゲームをjavascriptでGUI化したもの',
+    description: '大学の講義で作ったC言語のCLIのOXゲームをjavascriptでGUI化したものです．',
     technologies: ['HTML', 'CSS', 'javascript','C'],
+    icon: '/icons/ox.png',
   },
   {
     title: 'fifteel',
     description: '1年次に参加したJPhacksで作成した作品．主にchrome拡張機能を作成しました．',
     technologies: ['javascript', 'Python', 'LLM', 'chrome拡張'],
+    icon: '/icons/fifteel.png',
   },
   {
     title: 'FAST PENGUIN',
     description: '2年5月のサークルのハッカソンで作成した作品．Unityを使って作成しました．',
     technologies: ['C#','Unity'],
+    icon: '/icons/penguinIcon.png',
   },
   {
     title: 'POP TURN',
     description: '2年次に参加したJP HACKSで作成した作品．主にフロントエンドを担当しました．',
     technologies: ['firebase', 'chatgpt', 'python', 'typescript','Next.js'],
+    icon: '/icons/pop.png',
   },
+  //{
+  //  title: 'スマート名刺',
+  //  description: 'NFCタグにポートフォリオサイトのURLを埋め込み，シールを貼って名刺にしたものです．',
+  //  technologies: ['typescript','Next.js'],
+  //  icon: '/placeholder.svg',
+  //},
 ]
 
 const WorksSection: React.FC = () => {
@@ -64,7 +76,16 @@ const WorksSection: React.FC = () => {
               className="bg-gray-800 rounded-lg p-6 text-left min-h-[300px] flex flex-col justify-between"
             >
               <div className="px-4">
-                <h3 className={`${ShipporiMinchoFont.className} text-white text-2xl mb-2`}>{works[currentIndex].title}</h3>
+                <h3 className={`${ShipporiMinchoFont.className} text-white text-2xl mb-2 flex items-center`}>
+                  <Image
+                    src={works[currentIndex].icon || "/placeholder.svg"}
+                    alt={`${works[currentIndex].title} icon`}
+                    width={24}
+                    height={24}
+                    className="mr-2"
+                  />
+                  {works[currentIndex].title}
+                </h3>
                 <p className={`${ShipporiMinchoFont.className} text-gray-400 mb-4`}>{works[currentIndex].description}</p>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -116,7 +137,16 @@ const WorksSection: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-gray-800 rounded-lg p-6 text-left"
             >
-              <h3 className="text-white text-2xl mb-2">{work.title}</h3>
+              <h3 className="text-white text-2xl mb-2 flex items-center">
+                <Image
+                  src={work.icon || "/placeholder.svg"}
+                  alt={`${work.title} icon`}
+                  width={24}
+                  height={24}
+                  className="mr-2"
+                />
+                {work.title}
+              </h3>
               <p className="text-gray-400 mb-4">{work.description}</p>
               <div className="flex flex-wrap gap-2">
                 {work.technologies.map((tech, i) => (

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import StarBackground from './components/StarBackground'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Fuki Nakamura Portfolio',
+  description: 'Personal portfolio of Fuki Nakamura',
 }
 
 export default function RootLayout({
@@ -13,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <StarBackground />
+        {children}
+      </body>
     </html>
   )
 }
+

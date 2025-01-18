@@ -35,7 +35,7 @@ const AboutSection: React.FC = () => {
       <motion.div variants={itemVariants} className="md:w-1/3 mb-8 md:mb-0">
         <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden">
           <Image
-            src="/placeholder.svg"
+            src="/me.jpg"
             alt="Fuki Nakamura"
             layout="fill"
             objectFit="cover"
