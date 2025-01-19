@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { PlayfairDisplayFont, ShipporiMinchoFont } from '../font'
 import { IMAGES } from '../constants/images'
+import { PreloadedImage } from './PreloadedImage'
 
 type Skill = {
   name: string;
@@ -39,7 +40,7 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = React.memo(({ skill
     className="bg-gray-800 rounded-lg p-6 flex flex-col items-center"
     whileHover={{ scale: 1.05, backgroundColor: '#2d3748' }}
   >
-    <Image
+    <PreloadedImage
       src={skill.icon || "/placeholder.svg"}
       alt={skill.name}
       width={96}
@@ -98,7 +99,7 @@ const SkillSection: React.FC = () => {
                   className={`bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center ${skill.invisible ? 'invisible' : ''}`}
                 >
                   <div className="bg-gray-700 rounded-full p-6 mb-3 transition-colors duration-300">
-                    <Image
+                    <PreloadedImage
                       src={skill.icon || "/placeholder.svg"}
                       alt={skill.name}
                       width={64}

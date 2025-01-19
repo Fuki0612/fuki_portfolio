@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { PlayfairDisplayFont, ShipporiMinchoFont } from '../font'
 import { Card, CardContent } from '@/components/ui/card'
 import { IMAGES } from '../constants/images'
+import { PreloadedImage } from './PreloadedImage'
 
 const hobbies = [
   { 
@@ -69,7 +70,7 @@ const HobbyCard: React.FC<{ hobby: typeof hobbies[0] }> = ({ hobby }) => {
               transition={{ duration: 0.5 }}
               className="w-full h-full"
             >
-             <Image
+             <PreloadedImage
                 src={hobby.images[currentImageIndex] || "/placeholder.svg"}
                 alt={hobby.name}
                 width={900}
