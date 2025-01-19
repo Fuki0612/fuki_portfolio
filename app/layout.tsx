@@ -38,8 +38,8 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <link rel="shortcut icon" href="/favicon_ico.ico" sizes="any" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body>
         <StarBackground />
