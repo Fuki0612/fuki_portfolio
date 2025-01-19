@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import './globals.css'
 import StarBackground from './components/StarBackground'
