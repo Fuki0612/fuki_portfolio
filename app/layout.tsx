@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import type { Metadata } from 'next'
 import './globals.css'
 import StarBackground from './components/StarBackground'
@@ -27,7 +28,10 @@ export const metadata: Metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
+  orientation: 'portrait'
 }
 
 export default function RootLayout({
@@ -35,6 +39,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      if (window.orientation === 90 || window.orientation === -90) {
+        alert('このサイトは縦向きでの閲覧を推奨しています。デバイスを縦向きにしてください。');
+      }
+    };
+
+    window.addEventListener('orientationchange', handleOrientationChange);
+
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange);
+    };
+  }, []);
+
   return (
     <html lang="ja">
       <head>
