@@ -19,7 +19,7 @@ const hobbies = [
   },
   { 
     name: '一人旅', 
-    description: '大学から国内の様々なところに��人で旅行に行っています。旅行先では水族館に毎回行きます。',
+    description: '大学から国内の様々なところに一人で旅行に行っています。旅行先では水族館に毎回行きます。',
     images: IMAGES.hobbies.travel
   },
   { 

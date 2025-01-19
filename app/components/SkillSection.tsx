@@ -3,25 +3,54 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { PlayfairDisplayFont, ShipporiMinchoFont } from '../font'
+import { IMAGES } from '../constants/images'
 
-const skills = [
-  { name: 'HTML', icon: '/icons/html.png' },
-  { name: 'CSS', icon: '/icons/css.png' },
-  { name: 'JavaScript', icon: '/icons/JS.png' },
-  { name: 'TypeScript', icon: '/icons/TS.png' },
-  { name: 'C', icon: '/icons/c.png' },
-  { name: 'C++', icon: '/icons/c++.png' },
-  { name: 'Python', icon: '/icons/python.png' },
-  { name: 'Dart', icon: '/icons/dart.png' },
-  { name: 'React', icon: '/icons/react.png' },
-  { name: 'Next.js', icon: '/icons/next.png' },
-  { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
-  { name: 'Flutter', icon: '/icons/flutter.png' },
-  { name: 'VSCode', icon: '/icons/vscode.png' },
-  { name: 'Git Github', icon: '/icons/github.png' },
+type Skill = {
+  name: string;
+  icon: string;
+  invisible?: boolean;
+};
+
+const skills: Skill[] = [
+  { name: 'HTML', icon: IMAGES.skills.html },
+  { name: 'CSS', icon: IMAGES.skills.css },
+  { name: 'JavaScript', icon: IMAGES.skills.javascript },
+  { name: 'TypeScript', icon: IMAGES.skills.typescript },
+  { name: 'C', icon: IMAGES.skills.c },
+  { name: 'C++', icon: IMAGES.skills.cpp },
+  { name: 'Python', icon: IMAGES.skills.python },
+  { name: 'Dart', icon: IMAGES.skills.dart },
+  { name: 'React', icon: IMAGES.skills.react },
+  { name: 'Next.js', icon: IMAGES.skills.nextjs },
+  { name: 'Tailwind CSS', icon: IMAGES.skills.tailwind },
+  { name: 'Flutter', icon: IMAGES.skills.flutter },
+  { name: 'VSCode', icon: IMAGES.skills.vscode },
+  { name: 'Git Github', icon: IMAGES.skills.github },
   { name: 'invisible1', icon: '', invisible: true },
   { name: 'invisible2', icon: '', invisible: true },
 ]
+
+const SkillCard: React.FC<{ skill: Skill; index: number }> = React.memo(({ skill, index }) => (
+  <motion.div
+    key={index}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="bg-gray-800 rounded-lg p-6 flex flex-col items-center"
+    whileHover={{ scale: 1.05, backgroundColor: '#2d3748' }}
+  >
+    <Image
+      src={skill.icon || "/placeholder.svg"}
+      alt={skill.name}
+      width={96}
+      height={96}
+      className="w-24 h-24 rounded-full mb-4 transition-colors duration-300 bg-gray-800"
+    />
+    <h3 className="text-white text-xl font-bold">{skill.name}</h3>
+  </motion.div>
+))
+
+SkillCard.displayName = 'SkillCard'
 
 const SkillSection: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0)
@@ -115,22 +144,7 @@ const SkillSection: React.FC = () => {
         {/* Desktop version with all skills displayed */}
         <div className="hidden md:grid grid-cols-3 lg:grid-cols-7 gap-6 md:gap-8">
           {skills.filter(skill => !skill.invisible).map((skill, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800 rounded-lg p-6 flex flex-col items-center"
-            >
-              <Image
-                src={skill.icon || "/placeholder.svg"}
-                alt={skill.name}
-                width={96}
-                height={96}
-                className="w-24 h-24 rounded-full mb-4 transition-colors duration-300 bg-gray-800"
-              />
-              <h3 className="text-white text-xl font-bold">{skill.name}</h3>
-            </motion.div>
+            <SkillCard key={skill.name} skill={skill} index={index} />
           ))}
         </div>
       </div>
