@@ -9,6 +9,9 @@ import HobbySection from './components/HobbySection'
 import WorksSection from './components/WorksSection'
 import SkillSection from './components/SkillSection'
 import ContactSection from './components/ContactSection'
+import { useImagePreloader } from '../hooks/useImagePreloader'
+import { IMAGES } from './constants/images'
+import { PlayfairDisplayFont } from './font'
 
 const sections = [
   { id: 'home', title: 'HOME', Component: HomeSection },
@@ -47,6 +50,14 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const touchStartY = useRef(0)
   const [direction, setDirection] = useState(0)
+
+  const allImages = [
+    ...Object.values(IMAGES.hobbies).flat(),
+    ...Object.values(IMAGES.skills),
+    ...Object.values(IMAGES.works),
+  ];
+
+  const imagesPreloaded = useImagePreloader(allImages);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartY.current = e.touches[0].clientY
@@ -112,6 +123,14 @@ export default function Home() {
   const scrollToSection = (index: number) => {
     setCurrentSection(index)
     setDirection(index > currentSection ? 1 : -1)
+  }
+
+  if (!imagesPreloaded) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
+        <div className={`${PlayfairDisplayFont.className} text-white text-2xl`}>Loading...</div>
+      </div>
+    );
   }
 
   return (
