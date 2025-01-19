@@ -10,22 +10,22 @@ const hobbies = [
   { 
     name: '読書', 
     description: '小説を愛読。米澤穂信さんや三秋縋さんの作品が好きです。おすすめの小説を教えてほしいです。',
-    images: ['/Reading2.jpg', '/Reading1.jpg', '/Reading3.jpg']
+    images: ['/Reading2.jpg', '/Reading1.jpg', '/Reading3.jpg', '/Reading4.jpg']
   },
   { 
     name: 'ゲーム', 
     description: '小さい頃から遊んでいます。ひどいときはクリアまで寝食を忘れてプレイしてしまいます。',
-    images: ['/Game1.jpg', '/Game2.jpg', '/Game3.png']
+    images: ['/Game1.jpg', '/Game2.jpg', '/Game3.png', '/Game4.jpg']
   },
   { 
     name: '一人旅', 
     description: '大学から国内の様々なところに一人で旅行に行っています。旅行先では水族館に毎回行きます。',
-    images: ['/Travel1.jpg', '/Travel2.jpg', '/Travel3.jpg']
+    images: ['/Travel1.jpg', '/Travel2.jpg', '/Travel3.jpg', '/Travel4.jpg']
   },
   { 
     name: 'カフェ巡り', 
     description: '予定のない休日は基本カフェで本を読んでいます。コーヒーよりはカフェオレが好きです。',
-    images: ['/Cafe1.jpg', '/Cafe2.jpg', '/Cafe3.jpg']
+    images: ['/Cafe1.jpg', '/Cafe2.jpg', '/Cafe3.jpg', '/Cafe4.jpg']
   }, 
 ]
 
