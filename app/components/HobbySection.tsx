@@ -20,12 +20,12 @@ const hobbies = [
   { 
     name: '一人旅', 
     description: '大学から国内の様々なところに一人で旅行に行っています。旅行先では水族館に毎回行きます。',
-    images: ['/Travel1.jpg', '/Travel2.jpg', '/Travel3.jpg', '/Travel4.JPG']
+    images: ['/Travel1.jpg', '/Travel2.jpg', '/Travel3.jpg', '/Travel4.jpg']
   },
   { 
     name: 'カフェ巡り', 
     description: '予定のない休日は基本カフェで本を読んでいます。コーヒーよりはカフェオレが好きです。',
-    images: ['/Cafe1.jpg', '/Cafe2.jpg', '/Cafe3.jpg', '/Cafe4.JPG']
+    images: ['/Cafe1.jpg', '/Cafe2.jpg', '/Cafe3.jpg', '/Cafe4.jpg']
   }, 
 ]
 
