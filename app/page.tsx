@@ -70,12 +70,10 @@ export default function Home() {
       const diff = touchStartY.current - touchY
 
       if (diff > 0) {
-        // スクロールダウン：通常の動作を許可
         return
       }
 
-      // スクロールアップ：最後のセクション以外では preventDefault
-      if (currentSection < sections.length - 1) {
+      if (currentSection == 0) {
         e.preventDefault()
       }
     },
