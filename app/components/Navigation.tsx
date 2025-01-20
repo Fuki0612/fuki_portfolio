@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 interface NavigationProps {
   sections: { id: string; title: string }[]
@@ -17,6 +18,9 @@ const Navigation: React.FC<NavigationProps> = ({ sections, currentSection, scrol
       {/* Desktop Navigation */}
       <div className="hidden md:block bg-gray-900 bg-opacity-80 p-4">
         <ul className="flex justify-center space-x-4">
+          <li>
+            <Image src="/icon-72x72.png" alt="Portfolio Icon" width={40} height={40} className="rounded-full" />
+          </li>
           {sections.map((section, index) => (
             <li key={section.id}>
               <button
@@ -39,7 +43,7 @@ const Navigation: React.FC<NavigationProps> = ({ sections, currentSection, scrol
         <button
           onClick={toggleMenu}
           className="fixed top-4 right-4 bg-gray-800 text-white p-2 rounded-full z-50"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -47,6 +51,12 @@ const Navigation: React.FC<NavigationProps> = ({ sections, currentSection, scrol
         {/* Sidebar */}
         <div className={`fixed inset-y-0 right-0 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} w-64 bg-transparent overflow-y-auto transition duration-300 ease-in-out z-40`}>
           <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+              <Image src="/icon-72x72.png" alt="Portfolio Icon" width={40} height={40} className="rounded-full" />
+              <button onClick={toggleMenu} className="bg-gray-800 text-white p-2 rounded-full" aria-label="Close menu">
+                <X size={24} />
+              </button>
+            </div>
             <ul className="space-y-4">
               {sections.map((section, index) => (
                 <li key={section.id}>

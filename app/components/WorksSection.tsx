@@ -34,15 +34,15 @@ const works = [
   {
     title: 'POP TURN',
     description: '2年次に参加したJP HACKSで作成した作品。主にフロントエンドを担当しました。',
-    technologies: ['firebase', 'chatgpt', 'python', 'typescript','Next.js'],
+    technologies: ['firebase', 'chatgpt', 'python', 'typescript','Next.js','tailwindcss'],
     icon: IMAGES.works.popTurn,
   },
-  //{
-  //  title: 'スマート名刺',
-  //  description: 'NFCタグにポートフォリオサイトのURLを埋め込み、シールを貼って名刺にしたものです。',
-  //  technologies: ['typescript','Next.js'],
-  //  icon: '/placeholder.svg',
-  //},
+  {
+    title: 'ポートフォリオ',
+    description: '本サイトです．デザインセンスが皆無なのでv0でプロトタイプを作ってもらいました．ちなみに無駄にpwa対応してます．',
+    technologies: ['typescript','Next.js','tailwindcss','v0'],
+    icon: '/favicon_ico.ico',
+  },
 ]
 
 const WorksSection: React.FC = () => {
