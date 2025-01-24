@@ -8,12 +8,13 @@ import { PlayfairDisplayFont, ShipporiMinchoFont } from "../font"
 
 const ContactSection: React.FC = () => {
   return (
+    <>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className="text-center px-4 md:px-6 lg:px-8 py-32 md:py-64"
+      className="text-center px-4 md:px-6 lg:px-8 py-32 md:py-64 "
     >
       <h2 className={`${PlayfairDisplayFont.className} text-white text-4xl md:text-6xl font-bold mb-4`}>Contact Me</h2>
       <div className="mt-8">
@@ -68,6 +69,8 @@ const ContactSection: React.FC = () => {
         </div>
       </div>
     </motion.div>
+    <h3 className={`${PlayfairDisplayFont.className} text-white text-xs font-bold mb-1 bottom-0 right-1 absolute`}>©2024 NAKAMURA FUKI.   All rights resereved</h3>
+    </>
   )
 }
 
