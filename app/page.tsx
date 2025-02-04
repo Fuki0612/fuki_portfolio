@@ -21,7 +21,8 @@ const sections = [
   { id: "contact", title: "CONTACT", Component: ContactSection },
 ]
 
-const SCROLL_THRESHOLD = 50
+const TOUCH_SCROLL_THRESHOLD = 50
+const WHEEL_SCROLL_THRESHOLD = 100
 
 const pageVariants = {
   enter: (direction: number) => ({
@@ -39,7 +40,7 @@ const pageVariants = {
 }
 
 const pageTransition = {
-  type: "tween",
+  type: "spring",
   ease: "anticipate",
   duration: 0.5,
 }
@@ -84,7 +85,7 @@ export default function Home() {
     const touchEndY = e.changedTouches[0].clientY
     const diffY = touchStartY.current - touchEndY
 
-    if (Math.abs(diffY) >= SCROLL_THRESHOLD) {
+    if (Math.abs(diffY) >= TOUCH_SCROLL_THRESHOLD) {
       const newDirection = diffY > 0 ? 1 : -1
       const newSection = Math.max(0, Math.min(sections.length - 1, currentSection + newDirection))
 
@@ -101,7 +102,7 @@ export default function Home() {
     (e: WheelEvent) => {
       e.preventDefault()
 
-      if (Math.abs(e.deltaY) >= SCROLL_THRESHOLD) {
+      if (Math.abs(e.deltaY) >= WHEEL_SCROLL_THRESHOLD) {
         const newDirection = e.deltaY > 0 ? 1 : -1
         const newSection = Math.max(0, Math.min(sections.length - 1, currentSection + newDirection))
 
@@ -160,9 +161,9 @@ export default function Home() {
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = swipePower(offset.y, velocity.y)
 
-                if (swipe < -SCROLL_THRESHOLD) {
+                if (swipe < -TOUCH_SCROLL_THRESHOLD) {
                   scrollToSection(Math.min(sections.length - 1, currentSection + 1))
-                } else if (swipe > SCROLL_THRESHOLD) {
+                } else if (swipe > TOUCH_SCROLL_THRESHOLD) {
                   scrollToSection(Math.max(0, currentSection - 1))
                 }
               }}
