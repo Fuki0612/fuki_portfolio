@@ -154,7 +154,7 @@ const HobbySection: React.FC = () => {
                 </motion.div>
               </AnimatePresence>
             </div>
-            <div className="md:w-1/2 px-4 max--[100px] md:max-h-none">
+            <div className="md:w-1/2 px-4">
               <h3 className="text-white text-2xl font-extrabold mb-4">{hobbies[currentIndex].name}</h3>
               <p className="text-gray-300 text-lg leading-relaxed line-clamp-4 h-[5rem]">{hobbies[currentIndex].description}</p>
             </div>
