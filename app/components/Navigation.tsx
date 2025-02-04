@@ -50,10 +50,10 @@ const Navigation: React.FC<NavigationProps> = ({ sections, currentSection, scrol
 
         {/* Sidebar */}
         <div className={`fixed inset-y-0 right-0 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} w-64 bg-transparent overflow-y-auto transition duration-300 ease-in-out z-40`}>
-          <div className="p-6">
+          <div className="p-6 bg-gray-900 bg-opacity-80 h-screen">
           <div className="flex justify-between items-center mb-6">
               <Image src="/icon-72x72.png" alt="Portfolio Icon" width={40} height={40} className="rounded-full" />
-              <button onClick={toggleMenu} className="bg-gray-800 text-white p-2 rounded-full" aria-label="Close menu">
+              <button onClick={toggleMenu} className="bg-gray-800 p-2 rounded-full" aria-label="Close menu">
                 <X size={24} />
               </button>
             </div>
@@ -61,7 +61,7 @@ const Navigation: React.FC<NavigationProps> = ({ sections, currentSection, scrol
               {sections.map((section, index) => (
                 <li key={section.id}>
                   <button
-                    className={`text-white w-full text-left px-4 py-2 rounded-full transition-all duration-300 ${
+                    className={`text-yellow-500 w-full text-left px-4 py-2 rounded-full transition-all duration-300 ${
                       currentSection === index 
                         ? 'bg-blue-600 shadow-lg' 
                         : 'hover:bg-gray-700'
