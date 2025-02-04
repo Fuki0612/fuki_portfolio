@@ -39,7 +39,7 @@ const pageVariants = {
 }
 
 const pageTransition = {
-  type: "tween",
+  type: "spring",
   ease: "anticipate",
   duration: 0.5,
 }
