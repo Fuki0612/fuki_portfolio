@@ -125,7 +125,7 @@ const HobbySection: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col items-center justify-center h-full px-4 md:px-6 lg:px-8 py-32 md:py-64"
+      className="flex flex-col items-center justify-center h-full px-4 md:px-6 lg:px-8 pt-8 md:py-64"
     >
       <h2 className={`${PlayfairDisplayFont.className} text-white text-4xl md:text-6xl font-bold mb-8`}>My Hobbies</h2>
 
