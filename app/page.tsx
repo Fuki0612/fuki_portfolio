@@ -144,6 +144,20 @@ export default function Home() {
     }
   }, [handleWheel, handleTouchMove])
 
+  useEffect(() => {
+    const preventPullToRefresh = (e: TouchEvent) => {
+      if (window.scrollY === 0 && e.touches[0].clientY > e.touches[0].screenY) {
+        e.preventDefault() // 上スワイプ時のデフォルト動作を防ぐ
+      }
+    }
+
+    document.addEventListener("touchmove", preventPullToRefresh, { passive: false })
+
+    return () => {
+      document.removeEventListener("touchmove", preventPullToRefresh)
+    }
+  }, [])
+
   const scrollToSection = (index: number) => {
     const currentTime = Date.now()
     if (currentTime - lastScrollTime.current < scrollCooldown) {
