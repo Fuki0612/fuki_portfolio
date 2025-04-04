@@ -66,8 +66,8 @@ const ContactSection: React.FC = () => {
               <p className={`${ShipporiMinchoFont.className} text-2xl md:text-3xl font-bold`}>Github</p>
             </div>
           </a>
-          <h3 className={`${PlayfairDisplayFont.className} text-white text-xs font-bold pt-5`}>©2024 NAKAMURA FUKI.   All rights resereved</h3>
         </div>
+        <h3 className={`${PlayfairDisplayFont.className} text-white text-lg font-bold pt-5`}>©2025 NAKAMURA FUKI.   All rights resereved</h3>
       </div>
     </motion.div>
     </>

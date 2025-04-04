@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
@@ -6,12 +7,13 @@ import { PlayfairDisplayFont, ShipporiMinchoFont } from '../font'
 import { Card, CardContent } from '@/components/ui/card'
 import { IMAGES } from '../constants/images'
 import { PreloadedImage } from './PreloadedImage'
-
+import { useRouter } from 'next/navigation'
 const hobbies = [
   { 
     name: '読書', 
     description: '小説を愛読。米澤穂信さんや三秋縋さんの作品が好きです。おすすめの小説を教えてほしいです。',
-    images: IMAGES.hobbies.reading
+    images: IMAGES.hobbies.reading,
+    path: 'books'
   },
   { 
     name: 'ゲーム', 
@@ -33,6 +35,7 @@ const hobbies = [
 const HobbyCard: React.FC<{ hobby: typeof hobbies[0] }> = ({ hobby }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null
@@ -53,6 +56,9 @@ const HobbyCard: React.FC<{ hobby: typeof hobbies[0] }> = ({ hobby }) => {
       onMouseLeave={() => {
         setIsHovered(false)
         setCurrentImageIndex(0)
+      }}
+      onClick={() => {
+        router.push(`/${hobby.path}`)
       }}
     >
       <motion.div
