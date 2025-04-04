@@ -41,7 +41,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className="h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
+      <body className="h-screen overscroll-y-none bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
         <StarBackground />
         {children}
       </body>
