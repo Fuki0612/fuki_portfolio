@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from
 import Navigation from "./components/Navigation"
 import HomeSection from "./components/HomeSection"
 import AboutSection from "./components/AboutSection"
+import HistorySection from "./components/HistorySection"
 import HobbySection from "./components/HobbySection"
 import WorksSection from "./components/WorksSection"
 import SkillSection from "./components/SkillSection"
@@ -15,6 +16,7 @@ import LoadingSpinner from "./components/LoadingSpinner"
 const sections = [
   { id: "home", title: "HOME", Component: HomeSection },
   { id: "about", title: "ABOUT", Component: AboutSection },
+  { id: "history", title: "HISTORY", Component: HistorySection },
   { id: "hobby", title: "HOBBY", Component: HobbySection },
   { id: "skill", title: "SKILL", Component: SkillSection },
   { id: "works", title: "WORK", Component: WorksSection },
@@ -110,6 +112,10 @@ export default function Home() {
 
   const handleWheel = useCallback(
     (e: WheelEvent) => {
+      if (sections[currentSection].id === "history") {
+        return // Historyセクションのときは親のスクロール処理をスキップ
+      }
+      
       e.preventDefault()
 
       const currentTime = Date.now()
@@ -183,6 +189,23 @@ export default function Home() {
         {!imagesPreloaded && <LoadingSpinner />}
         {imagesPreloaded && (
           <AnimatePresence initial={false} custom={direction} mode="wait">
+          {sections[currentSection].id === "history" ? (
+            <motion.div
+              key={currentSection}
+              custom={direction}
+              variants={pageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={pageTransition}
+              className="absolute inset-0 flex items-center justify-center py-16 md:py-32"
+            >
+              <HistorySection 
+                onTimelineScrollEnd={() => scrollToSection(currentSection + 1)}
+                onTimelineScrollStart={() => scrollToSection(currentSection - 1)}
+              />
+            </motion.div>
+          ) : (
             <motion.div
               key={currentSection}
               custom={direction}
@@ -195,7 +218,8 @@ export default function Home() {
             >
               {React.createElement(sections[currentSection].Component)}
             </motion.div>
-          </AnimatePresence>
+          )}
+        </AnimatePresence>
         )}
       </div>
     </div>

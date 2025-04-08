@@ -46,9 +46,10 @@ const AboutSection: React.FC = () => {
         <motion.h2 variants={itemVariants} className={`${PlayfairDisplayFont.className} text-white text-3xl md:text-6xl font-bold mb-4`}>About Me</motion.h2>
         <motion.h3 variants={itemVariants} className={`${ShipporiMinchoFont.className} text-white text-2xl md:text-4xl font-bold mb-6`}>中村 風稀 <span className='block'>- Fuki Nakamura</span></motion.h3>
         <motion.p variants={itemVariants} className={`${ShipporiMinchoFont.className} text-gray-300 text-1xl md:text-xl max-w-3xl space-y-4 text-left`}>
-          静岡県磐田市出身（2004年6月生まれ）<br/>
-          高校時代、部活でプログラミングに出会い、自作ゲームコンテストで2年連続受賞。その後、名古屋大学情報学部コンピュータ科学科に進学。<br/>
-          大学進学後はアプリ開発サークルに入り、大学の講義とサークル活動を通してプログラミングについて日々学習中。
+          2004年6月12日に静岡県で生まれる．<br />
+          幼少期はロボットが好きでロボットを作る仕事に憧れていた．<br />
+          やがて機械のハードウェアよりもソフトウェアの分野に惹かれ，システムやプログラミングへの興味を深める．<br />
+          その後大学ではコンピュータ科学を専攻する．<br />
         </motion.p>
       </div>
     </motion.div>

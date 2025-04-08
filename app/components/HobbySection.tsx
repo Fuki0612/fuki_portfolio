@@ -13,7 +13,6 @@ const hobbies = [
     name: '読書', 
     description: '小説を愛読。米澤穂信さんや三秋縋さんの作品が好きです。おすすめの小説を教えてほしいです。',
     images: IMAGES.hobbies.reading,
-    path: 'books'
   },
   { 
     name: 'ゲーム', 
@@ -56,9 +55,6 @@ const HobbyCard: React.FC<{ hobby: typeof hobbies[0] }> = ({ hobby }) => {
       onMouseLeave={() => {
         setIsHovered(false)
         setCurrentImageIndex(0)
-      }}
-      onClick={() => {
-        router.push(`/${hobby.path}`)
       }}
     >
       <motion.div
@@ -196,7 +192,7 @@ const HobbySection: React.FC = () => {
         </div>
 
         {/* Desktop version with all hobbies displayed */}
-        <h3 className={`${ShipporiMinchoFont.className} invisible md:visible text-white text-md font-bold mb-2 text-center`}>ホバーすると画像が切り替わります</h3>
+        <h3 className={`${ShipporiMinchoFont.className} invisible md:visible text-white text-md font-bold mb-5 text-center`}>ホバーすると画像が切り替わります</h3>
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {hobbies.map((hobby, index) => (
             <HobbyCard key={index} hobby={hobby} />
