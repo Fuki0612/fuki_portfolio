@@ -9,17 +9,17 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon_ico.ico' },
-      { url: '/icon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/icon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon-72x72.png', sizes: '72x72', type: 'image/png' },
-      { url: '/icon-128x128.png', sizes: '128x128', type: 'image/png' },
-      { url: '/icon-144x144.png', sizes: '144x144', type: 'image/png' },
-      { url: '/icon-152x152.png', sizes: '152x152', type: 'image/png' },
-      { url: '/icon-384x384.png', sizes: '384x384', type: 'image/png' },
-      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/icon-72x72.png', sizes: '72x72', type: 'image/png' },
+      { url: '/icons/icon-128x128.png', sizes: '128x128', type: 'image/png' },
+      { url: '/icons/icon-144x144.png', sizes: '144x144', type: 'image/png' },
+      { url: '/icons/icon-152x152.png', sizes: '152x152', type: 'image/png' },
+      { url: '/icons/icon-384x384.png', sizes: '384x384', type: 'image/png' },
+      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
 }
@@ -39,7 +39,7 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       </head>
       <body className="h-screen overscroll-y-none bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
         <StarBackground />

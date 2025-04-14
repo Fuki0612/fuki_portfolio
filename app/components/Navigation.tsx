@@ -19,14 +19,14 @@ const Navigation: React.FC<NavigationProps> = ({ sections, currentSection, scrol
       <div className="hidden md:block bg-gray-900 bg-opacity-80 p-4">
         <ul className="flex justify-center space-x-4">
           <li>
-            <Image src="/icon-72x72.png" alt="Portfolio Icon" width={40} height={40} className="rounded-full" />
+            <Image src="/icons/icon-72x72.png" alt="Portfolio Icon" width={40} height={40} className="rounded-full" />
           </li>
           {sections.map((section, index) => (
             <li key={section.id}>
               <button
                 className={`text-white px-4 py-2 rounded-full transition-all duration-300 ${
                   currentSection === index 
-                    ? 'bg-blue-600 shadow-lg' 
+                    ? 'bg-blue-700 shadow-lg' 
                     : 'hover:bg-gray-700'
                 }`}
                 onClick={() => scrollToSection(index)}
@@ -52,7 +52,7 @@ const Navigation: React.FC<NavigationProps> = ({ sections, currentSection, scrol
         <div className={`fixed inset-y-0 right-0 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} w-64 bg-transparent overflow-y-auto transition duration-300 ease-in-out z-40`}>
           <div className="p-6 bg-gray-900 bg-opacity-80 h-screen">
           <div className="flex justify-between items-center mb-6">
-              <Image src="/icon-72x72.png" alt="Portfolio Icon" width={40} height={40} className="rounded-full" />
+              <Image src="/icons/icon-72x72.png" alt="Portfolio Icon" width={40} height={40} className="rounded-full" />
               <button onClick={toggleMenu} className="bg-gray-800 p-2 rounded-full" aria-label="Close menu">
                 <X size={24} />
               </button>

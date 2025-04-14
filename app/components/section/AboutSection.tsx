@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { PlayfairDisplayFont,ShipporiMinchoFont } from '../font';
+import { PlayfairDisplayFont,ShipporiMinchoFont } from '../../font';
 
 const containerVariants = {
   hidden: { opacity: 0 },

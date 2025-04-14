@@ -3,20 +3,20 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { PlayfairDisplayFont, ShipporiMinchoFont } from '../font'
-import { Card, CardContent } from '@/components/ui/card'
-import { IMAGES } from '../constants/images'
-import { PreloadedImage } from './PreloadedImage'
-import { useRouter } from 'next/navigation'
+import { IMAGES } from '../../constants/images'
+import Title from '../atom/title';
+import SectionDiv from '../atom/sectionDiv';
+import HobbyCard from '../atom/hobbyCard';
+
 const hobbies = [
   { 
     name: '読書', 
-    description: '小説を愛読。米澤穂信さんや三秋縋さんの作品が好きです。おすすめの小説を教えてほしいです。',
+    description: '小説や漫画を読みます．米澤穂信さんの小説が好きです．おすすめの小説や本を教えてほしいです．',
     images: IMAGES.hobbies.reading,
   },
   { 
     name: 'ゲーム', 
-    description: '小さい頃から遊んでいます。ひどいときはクリアまで寝食を忘れてプレイしてしまいます。',
+    description: 'RPGを良く遊んでいます．のんびりコツコツ進められるゲームが好きです．',
     images: IMAGES.hobbies.gaming
   },
   { 
@@ -30,69 +30,6 @@ const hobbies = [
     images: IMAGES.hobbies.cafe
   }, 
 ]
-
-const HobbyCard: React.FC<{ hobby: typeof hobbies[0] }> = ({ hobby }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [isHovered, setIsHovered] = useState(false)
-  const router = useRouter()
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout | null = null
-    if (isHovered) {
-      interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % hobby.images.length)
-      }, 2000)
-    }
-    return () => {
-      if (interval) clearInterval(interval)
-    }
-  }, [isHovered, hobby.images.length])
-
-  return (
-    <Card 
-      className="w-full max-w-sm bg-slate-900 text-white overflow-hidden relative border-none hover:scale-105 transition-transform duration-300"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false)
-        setCurrentImageIndex(0)
-      }}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-gray-800 rounded-lg flex flex-col items-center h-[400px] relative w-full"
-      >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentImageIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="w-full h-full"
-            >
-             <PreloadedImage
-                src={hobby.images[currentImageIndex] || "/placeholder.svg"}
-                alt={hobby.name}
-                width={900}
-                height={1600}
-                style={{
-                    width: '100%',
-                    height: '100%',
-                }}
-                  className="w-full object-cover object-position: center"
-              />
-            </motion.div>
-          </AnimatePresence>
-        <CardContent className="absolute bottom-0 p-6 space-y-3 flex flex-col justify-end h-1/2 bg-gradient-to-t from-black to-transparent">
-          <h3 className={`${ShipporiMinchoFont.className} text-white text-xl font-extrabold mb-2`}>{hobby.name}</h3>
-          <p className={`${ShipporiMinchoFont.className} text-gray-300 text-sm text-left line-clamp-3`}>{hobby.description}</p>
-        </CardContent>
-      </motion.div>
-    </Card>
-  )
-}
 
 const HobbySection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -122,14 +59,8 @@ const HobbySection: React.FC = () => {
   
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col items-center justify-center h-full px-4 md:px-6 lg:px-8 pt-8 md:py-64"
-    >
-      <h2 className={`${PlayfairDisplayFont.className} text-white text-4xl md:text-6xl font-bold mb-8`}>My Hobbies</h2>
+    <SectionDiv>
+      <Title title="My Hobby" />
 
       <div className="w-full max-w-7xl mx-auto">
 
@@ -192,14 +123,13 @@ const HobbySection: React.FC = () => {
         </div>
 
         {/* Desktop version with all hobbies displayed */}
-        <h3 className={`${ShipporiMinchoFont.className} invisible md:visible text-white text-md font-bold mb-5 text-center`}>ホバーすると画像が切り替わります</h3>
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {hobbies.map((hobby, index) => (
             <HobbyCard key={index} hobby={hobby} />
           ))}
         </div>
       </div>
-    </motion.div>
+    </SectionDiv>
   )
 }
 

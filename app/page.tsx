@@ -2,13 +2,13 @@
 import React, { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion"
 import Navigation from "./components/Navigation"
-import HomeSection from "./components/HomeSection"
-import AboutSection from "./components/AboutSection"
-import HistorySection from "./components/HistorySection"
-import HobbySection from "./components/HobbySection"
-import WorksSection from "./components/WorksSection"
-import SkillSection from "./components/SkillSection"
-import ContactSection from "./components/ContactSection"
+import HomeSection from "./components/section/HomeSection"
+import AboutSection from "./components/section/AboutSection"
+import HistorySection from "./components/section/HistorySection"
+import HobbySection from "./components/section/HobbySection"
+import WorksSection from "./components/section/WorksSection"
+import SkillSection from "./components/section/SkillSection"
+import ContactSection from "./components/section/ContactSection"
 import { useImagePreloader } from "../hooks/useImagePreloader"
 import { IMAGES } from "./constants/images"
 import LoadingSpinner from "./components/LoadingSpinner"
@@ -112,8 +112,8 @@ export default function Home() {
 
   const handleWheel = useCallback(
     (e: WheelEvent) => {
-      if (sections[currentSection].id === "history") {
-        return // Historyセクションのときは親のスクロール処理をスキップ
+      if (sections[currentSection].id === "history" || sections[currentSection].id === "works") {
+        return
       }
       
       e.preventDefault()
@@ -170,9 +170,11 @@ export default function Home() {
       return
     }
 
-    setCurrentSection(index)
-    setDirection(index > currentSection ? 1 : -1)
-    lastScrollTime.current = currentTime
+    requestAnimationFrame(() => {
+      setCurrentSection(index)
+      setDirection(index > currentSection ? 1 : -1)
+      lastScrollTime.current = currentTime
+    })
   }
 
   return (
@@ -189,37 +191,33 @@ export default function Home() {
         {!imagesPreloaded && <LoadingSpinner />}
         {imagesPreloaded && (
           <AnimatePresence initial={false} custom={direction} mode="wait">
-          {sections[currentSection].id === "history" ? (
-            <motion.div
-              key={currentSection}
-              custom={direction}
-              variants={pageVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={pageTransition}
-              className="absolute inset-0 flex items-center justify-center py-16 md:py-32"
-            >
-              <HistorySection 
-                onTimelineScrollEnd={() => scrollToSection(currentSection + 1)}
-                onTimelineScrollStart={() => scrollToSection(currentSection - 1)}
-              />
-            </motion.div>
-          ) : (
-            <motion.div
-              key={currentSection}
-              custom={direction}
-              variants={pageVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={pageTransition}
-              className="absolute inset-0 flex items-center justify-center py-16 md:py-32"
-            >
-              {React.createElement(sections[currentSection].Component)}
-            </motion.div>
-          )}
-        </AnimatePresence>
+              <motion.div
+                key={currentSection}
+                custom={direction}
+                variants={pageVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={pageTransition}
+                className="absolute inset-0 flex items-center justify-center section-scroll-container"
+              >
+                {sections[currentSection].id === "history" ? (
+                  <HistorySection 
+                    onTimelineScrollEnd={() => scrollToSection(currentSection + 1)}
+                    onTimelineScrollStart={() => scrollToSection(currentSection - 1)}
+                    onSectionScrollUp={() => scrollToSection(currentSection - 1)}
+                    onSectionScrollDown={() => scrollToSection(currentSection + 1)}
+                  />
+                ) : sections[currentSection].id === "works" ? (
+                  <WorksSection 
+                    onSectionScrollUp={() => scrollToSection(currentSection - 1)}
+                    onSectionScrollDown={() => scrollToSection(currentSection + 1)}
+                  />
+                ) : (
+                  React.createElement(sections[currentSection].Component)
+                )}
+              </motion.div>
+          </AnimatePresence>
         )}
       </div>
     </div>

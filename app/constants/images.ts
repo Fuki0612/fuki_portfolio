@@ -1,9 +1,9 @@
 export const IMAGES = {
   hobbies: {
-    reading: ['/Reading2.jpg', '/Reading1.jpg', '/Reading3.jpg', '/Reading4.jpg'],
-    gaming: ['/Game1.jpg', '/Game2.jpg', '/Game3.png', '/Game4.jpg'],
-    travel: ['/Travel1.jpg', '/Travel2.jpg', '/Travel3.jpg', '/Travel4.jpg'],
-    cafe: ['/Cafe1.jpg', '/Cafe2.jpg', '/Cafe3.jpg', '/Cafe4.jpg'],
+    reading: ['/hobby/Reading2.jpg', '/hobby/Reading1.jpg', '/hobby/Reading3.jpg', '/hobby/Reading4.jpg'],
+    gaming: ['/hobby/Game1.jpg', '/hobby/Game2.jpg', '/hobby/Game3.png', '/hobby/Game4.jpg'],
+    travel: ['/hobby/Travel1.jpg', '/hobby/Travel2.jpg', '/hobby/Travel3.jpg', '/hobby/Travel4.jpg'],
+    cafe: ['/hobby/Cafe1.jpg', '/hobby/Cafe2.jpg', '/hobby/Cafe3.jpg', '/hobby/Cafe4.jpg'],
   },
   skills: {
     html: '/icons/html.png',
@@ -27,6 +27,7 @@ export const IMAGES = {
     fifteel: '/icons/fifteel.png',
     fastPenguin: '/icons/penguinIcon.png',
     popTurn: '/icons/pop.png',
+    tubegraph: '/icons/tubegraph.png',
   },
 };
 
