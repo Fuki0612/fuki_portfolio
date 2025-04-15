@@ -2,8 +2,8 @@ export const IMAGES = {
   hobbies: {
     reading: ['/hobby/Reading2.jpg', '/hobby/Reading1.jpg', '/hobby/Reading3.jpg', '/hobby/Reading4.jpg'],
     gaming: ['/hobby/Game1.jpg', '/hobby/Game2.jpg', '/hobby/Game3.png', '/hobby/Game4.jpg'],
-    travel: ['/hobby/Travel1.jpg', '/hobby/Travel2.jpg', '/hobby/Travel3.jpg', '/hobby/Travel4.jpg'],
-    cafe: ['/hobby/Cafe1.jpg', '/hobby/Cafe2.jpg', '/hobby/Cafe3.jpg', '/hobby/Cafe4.jpg'],
+    travel: ['/hobby/Travel1.jpg', '/hobby/Travel2.jpg', '/hobby/Travel3.jpg', '/hobby/Travel4.JPG'],
+    cafe: ['/hobby/Cafe1.jpg', '/hobby/Cafe2.jpg', '/hobby/Cafe3.jpg', '/hobby/Cafe4.JPG'],
   },
   skills: {
     html: '/icons/html.png',
