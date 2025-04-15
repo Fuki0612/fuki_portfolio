@@ -5,14 +5,14 @@ import Timeline from "../atom/timeline";
 import TimelineControls from "../atom/historyControl";
 
 interface HistorySectionProps {
-  onTimelineScrollEnd: () => void;
+  onTimelineScrollEnd? :() => void;
   onTimelineScrollStart?: () => void; 
   onSectionScrollUp?: () => void;  
   onSectionScrollDown?: () => void;  
 }
 
 const HistorySection: React.FC<HistorySectionProps> = ({ 
-  onTimelineScrollEnd, 
+  onTimelineScrollEnd = () => {},
   onTimelineScrollStart,
   onSectionScrollUp,
   onSectionScrollDown 
