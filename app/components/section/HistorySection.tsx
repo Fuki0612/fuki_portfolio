@@ -74,7 +74,31 @@ const HistorySection: React.FC<HistorySectionProps> = ({
   return (
     <SectionDiv ref={outerContainerRef}>
       <Title title="My History" />
-      
+
+      <div className="md:hidden grid grid-cols-2 gap-4">
+        <div className="flex flex-col gap-5">
+          {timeline
+            .filter((_, index) => index % 2 === 0)
+            .map((item, i) => (
+              <div key={`left-${i}`} className="bg-gray-800 rounded-lg py-1 my-1 flex flex-col items-center text-center">
+                <h3 className="text-white text-xs font-bold">{item.year}</h3>
+                <h4 className="text-yellow-300 text-xs font-semibold">{item.title}</h4>
+              </div>
+            ))}
+        </div>
+
+        <div className="flex flex-col gap-5 mt-5">
+          {timeline
+            .filter((_, index) => index % 2 === 1)
+            .map((item, i) => (
+              <div key={`right-${i}`} className="bg-gray-800 rounded-lg py-1 my-1 flex flex-col items-center text-center">
+                <h3 className="text-white text-xs font-bold">{item.year}</h3>
+                <h4 className="text-yellow-300 text-xs font-semibold">{item.title}</h4>
+              </div>
+            ))}
+        </div>
+      </div>
+
       <TimelineControls 
         alwaysShowDetail={alwaysShowDetail}
         setAlwaysShowDetail={setAlwaysShowDetail}

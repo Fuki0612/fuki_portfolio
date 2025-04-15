@@ -34,14 +34,14 @@ const VerticalSkillCard: React.FC<{ skill: Skill; alwaysShowDetail:boolean }> = 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-gray-800/80 backdrop-blur-sm rounded-lg py-3 px-10 flex flex-col items-center relative"
+      className="bg-gray-800/80 backdrop-blur-sm rounded-lg px-3 md:py-3 md:px-10 flex flex-col items-center relative"
       onMouseEnter={() => setShowDetails(true)}
       onMouseLeave={() => setShowDetails(false)}
       whileHover={{ scale: 1.03, backgroundColor: 'rgba(55, 65, 81, 0.9)' }}
     >
-      <h3 className={`${ShipporiMinchoFont.className} text-white text-xl font-bold`}>{skill.name}</h3>
+      <h3 className={`${ShipporiMinchoFont.className} text-white text-sm md:text-xl font-bold`}>{skill.name}</h3>
       
-      <div className="bg-gray-700/50 rounded-full p-4 my-2">
+      <div className="bg-gray-700/50 rounded-full p-0 md:p-4 my-2">
         <PreloadedImage
           src={skill.icon || "/placeholder.svg"}
           alt={skill.name}

@@ -206,7 +206,7 @@ const Timeline: React.FC<TimelineProps> = ({
   return (
     <div 
       ref={scrollContainerRef} 
-      className="relative w-[100vw] overflow-x-auto pt-20 rounded-lg cursor-grab active:cursor-grabbing mx-0"
+      className="hidden md:block relative w-[100vw] overflow-x-auto pt-20 rounded-lg cursor-grab active:cursor-grabbing mx-0 border-y border-dashed"
       style={{ 
         maxWidth: '100%',
         scrollbarWidth: 'none',

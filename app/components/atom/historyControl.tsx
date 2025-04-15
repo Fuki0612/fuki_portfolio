@@ -11,9 +11,10 @@ const TimelineControls: React.FC<TimelineControlsProps> = ({
   setAlwaysShowDetail
 }) => {
   return (
-    <div className="flex gap-10">
+    <div className="hidden md:flex gap-10 mb-4">
       <h3 className={`${ShipporiMinchoFont.className} text-white text-md font-bold my-0 text-center`}>
-        私のこれまでを振り返りましょう <br/>ホバーで詳細が表示されます
+        私のこれまでを振り返りましょう<br />
+        スクロールでタイムラインが移動します
       </h3>
       <button 
         onClick={() => setAlwaysShowDetail(prev => !prev)}

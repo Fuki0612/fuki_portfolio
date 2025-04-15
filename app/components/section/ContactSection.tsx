@@ -61,7 +61,7 @@ const ContactSection: React.FC = () => {
           </div>
         </a>
       </div>
-      <h3 className={`${PlayfairDisplayFont.className} text-white text-lg font-bold pt-5`}>©2025 NAKAMURA FUKI.   All rights resereved</h3>
+      <h3 className={`${PlayfairDisplayFont.className} text-white text-xs md:text-md font-bold pt-5`}>©2025 NAKAMURA FUKI.   All rights resereved</h3>
     </SectionDiv>
   )
 }

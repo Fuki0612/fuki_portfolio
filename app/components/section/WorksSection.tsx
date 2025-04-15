@@ -275,7 +275,7 @@ const WorksSection: React.FC<WorksSectionProps> = ({ onSectionScrollUp, onSectio
       <Title title="My Works" />
       <div className="w-full h-2/3 mx-auto">
         {/* モバイル表示 */}
-        <div className="md:hidden px-8">
+        <div className="md:hidden px-8 h-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={`work-${detailIndex}`}
@@ -309,7 +309,7 @@ const WorksSection: React.FC<WorksSectionProps> = ({ onSectionScrollUp, onSectio
               </div>
             </motion.div>
           </AnimatePresence>
-          <div className="flex justify-between items-center mt-6 mb-4">
+          <div className="flex justify-between items-center mt-6 mb-4 absolute w-full px-10 left-0 bottom-4">
             <button
               onClick={prevWork}
               className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
@@ -317,15 +317,6 @@ const WorksSection: React.FC<WorksSectionProps> = ({ onSectionScrollUp, onSectio
             >
               <ChevronLeft size={24} />
             </button>
-            <button
-              onClick={nextWork}
-              className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
-              aria-label="Next work"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
-          <div className="mt-2 flex justify-center space-x-2 mb-4">
             {works.map((_, index) => (
               <button
                 key={index}
@@ -336,6 +327,13 @@ const WorksSection: React.FC<WorksSectionProps> = ({ onSectionScrollUp, onSectio
                 aria-label={`Go to work ${index + 1}`}
               />
             ))}
+            <button
+              onClick={nextWork}
+              className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
+              aria-label="Next work"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
         </div>
 

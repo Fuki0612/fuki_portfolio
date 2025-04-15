@@ -89,10 +89,10 @@ const HobbySection: React.FC = () => {
             </div>
             <div className="md:w-1/2 px-4">
               <h3 className="text-white text-2xl font-extrabold mb-4">{hobbies[currentIndex].name}</h3>
-              <p className="text-gray-300 text-lg leading-relaxed line-clamp-4 h-[5rem]">{hobbies[currentIndex].description}</p>
+              <p className="text-gray-300 text-md leading-relaxed text-left">{hobbies[currentIndex].description}</p>
             </div>
           </div>
-          <div className="flex justify-between items-center mt-6 mb-4">
+          <div className="flex justify-between items-center mt-6 mb-4 absolute bottom-0 left-0 right-0 px-10">
             <button
               onClick={prevHobby}
               className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
@@ -100,15 +100,6 @@ const HobbySection: React.FC = () => {
             >
               <ChevronLeft size={24} />
             </button>
-            <button
-              onClick={nextHobby}
-              className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
-              aria-label="Next hobby"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
-          <div className="mt-2 flex justify-center space-x-2 mb-4">
             {hobbies.map((_, index) => (
               <button
                 key={index}
@@ -119,9 +110,15 @@ const HobbySection: React.FC = () => {
                 aria-label={`Go to hobby ${index + 1}`}
               />
             ))}
+            <button
+              onClick={nextHobby}
+              className="bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-300"
+              aria-label="Next hobby"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
         </div>
-
         {/* Desktop version with all hobbies displayed */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {hobbies.map((hobby, index) => (

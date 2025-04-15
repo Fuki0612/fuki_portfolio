@@ -22,7 +22,7 @@ const skills: Skill[] = [
     name: 'HTML', 
     icon: IMAGES.skills.html,
     level: 3,
-    description: 'セマンティックなHTML構造の設計ができます．アクセシビリティにも配慮したマークアップを心がけています．',
+    description: 'セマンティックなHTML構造の設計ができます．SEOやアクセシビリティに気を付けています．',
     experience: '2年',
     category: 'language'
   },
@@ -70,7 +70,7 @@ const skills: Skill[] = [
     name: 'Python', 
     icon: IMAGES.skills.python,
     level: 3,
-    description: '簡潔で可読性の高いコードを書くことができます．スクレイピングもこれで実装しました．',
+    description: '簡潔で可読性の高いコードを書くことができます．webスクレイピングを実装したことがあります．',
     experience: '2年',
     category: 'language'
   },
@@ -94,7 +94,7 @@ const skills: Skill[] = [
     name: 'Next.js', 
     icon: IMAGES.skills.nextjs,
     level: 3,
-    description: '最近のWebアプリ開発は専らこれです．SSRやSSGを活用した開発ができます．',
+    description: '最近のWebアプリ開発は専らこれです．Reactとの差異を実感出来るようになりたいです．',
     experience: '1年',
     category: 'framework'
   },
@@ -123,10 +123,10 @@ const skills: Skill[] = [
     category: 'others'
   },
   { 
-    name: 'Git Github', 
+    name: 'Git GitHub', 
     icon: IMAGES.skills.github,
-    level: 4,
-    description: '毎チーム開発で使用しています．Gitの基本的なコマンドやGithubのPull Requestの流れを理解しています．',
+    level: 2,
+    description: '毎チーム開発で使用しています．Gitの基本的なコマンドやGithubのPull Requestの流れを理解しています．CI/CDを学習したいです',
     experience: '2年',
     category: 'others'
   }  
@@ -178,7 +178,7 @@ const SkillSection: React.FC = () => {
   return (
     <SectionDiv>
       <Title title="My Skills" />
-      <div className="mb-8 flex flex-wrap justify-center gap-2">
+      <div className="mb-8 flex flex-wrap justify-center gap-2 hidden md:block">
         <button
           onClick={prevPage}
           disabled={isSinglePageDesktop}
@@ -223,7 +223,7 @@ const SkillSection: React.FC = () => {
         </button>
       </div>
 
-      <div className="w-full relative">
+      <div className="w-full">
         {/* モバイル表示: 縦に4つのスキルカード */}
         <div className="md:hidden px-4">
           <AnimatePresence mode="wait">
@@ -233,7 +233,7 @@ const SkillSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="flex flex-col gap-6"
+              className="grid grid-cols-2 gap-4" // ここをグリッドレイアウトに変更
             >
               {currentMobileSkills.map((skill, index) => (
                 <VerticalSkillCard key={skill.name} skill={skill} alwaysShowDetail={alwaysShowDetail} />
@@ -241,10 +241,10 @@ const SkillSection: React.FC = () => {
             </motion.div>
           </AnimatePresence>
           
-          {/* モバイル用ページネーション */}
-          <div className="mt-8 flex justify-between items-center">
+          {/* モバイル用ページ切り替え */}
+          <div className="mt-8 flex justify-between items-center absolute bottom-10 left-0 right-0 px-10">
             <button
-              onClick={prevPage}
+              onClick={() => setCurrentPage(prev => (prev - 1 + totalPagesMobile) % totalPagesMobile)}
               className="bg-gray-700/50 text-white p-2 rounded-full transition-colors duration-300 hover:bg-gray-600"
               aria-label="Previous skills"
             >
@@ -263,7 +263,7 @@ const SkillSection: React.FC = () => {
               ))}
             </div>
             <button
-              onClick={nextPage}
+              onClick={() => setCurrentPage(prev => (prev + 1) % totalPagesMobile)}
               className="bg-gray-700/50 text-white p-2 rounded-full transition-colors duration-300 hover:bg-gray-600"
               aria-label="Next skills"
             >
