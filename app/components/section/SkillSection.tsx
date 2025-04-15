@@ -178,7 +178,7 @@ const SkillSection: React.FC = () => {
   return (
     <SectionDiv>
       <Title title="My Skills" />
-      <div className="mb-8 flex flex-wrap justify-center gap-2 hidden md:block">
+      <div className="mb-8 flex-wrap justify-center gap-2 hidden md:flrx">
         <button
           onClick={prevPage}
           disabled={isSinglePageDesktop}
