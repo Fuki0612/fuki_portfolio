@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-import { motion } from "framer-motion"
 import { Mail, Github, Instagram } from "lucide-react"
 import Image from "next/image"
 import { PlayfairDisplayFont, ShipporiMinchoFont } from "../../font"

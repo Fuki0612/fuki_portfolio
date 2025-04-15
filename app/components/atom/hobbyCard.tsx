@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { PreloadedImage } from "./PreloadedImage"
-import { ShipporiMinchoFont } from "@/app/font"
+import { ShipporiMinchoFont } from "../../font"
 
 const HobbyCard: React.FC<{ hobby: {name : string, description: string, images: string[]} }> = ({ hobby }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
