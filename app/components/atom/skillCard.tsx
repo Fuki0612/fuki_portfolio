@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { PreloadedImage } from "./PreloadedImage";
-import { ShipporiMinchoFont } from "@/app/font";
+import { ShipporiMinchoFont } from "../../font";
 
 type Skill = {
   name: string;

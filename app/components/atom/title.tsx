@@ -1,4 +1,4 @@
-import { PlayfairDisplayFont } from "@/app/font"
+import { PlayfairDisplayFont } from "../../font"
 
 const Title:React.FC<{ title: string }> = ({ title }) => {
   return (
