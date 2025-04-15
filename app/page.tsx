@@ -65,8 +65,6 @@ export default function Home() {
     ...Object.values(IMAGES.works),
   ]
 
-  const imagesPreloaded = useImagePreloader(allImages)
-
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartY.current = e.touches[0].clientY
     setIsScrolling(true)
@@ -179,17 +177,13 @@ export default function Home() {
 
   return (
     <div className="h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
-      {imagesPreloaded && (
         <Navigation sections={sections} currentSection={currentSection} scrollToSection={scrollToSection} />
-      )}
       <div
         ref={containerRef}
         className="h-full relative pt-0 md:pt-16"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {!imagesPreloaded && <LoadingSpinner />}
-        {imagesPreloaded && (
           <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentSection}
@@ -218,7 +212,6 @@ export default function Home() {
                 )}
               </motion.div>
           </AnimatePresence>
-        )}
       </div>
     </div>
   )
