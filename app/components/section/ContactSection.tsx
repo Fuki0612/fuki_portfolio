@@ -56,7 +56,7 @@ const ContactSection: React.FC = () => {
         >
           <div className="flex gap-4 items-center">
             <Github size={48} />
-            <p className={`${ShipporiMinchoFont.className} text-2xl md:text-3xl font-bold`}>Github</p>
+            <p className={`${ShipporiMinchoFont.className} text-2xl md:text-3xl font-bold`}>GitHub</p>
           </div>
         </a>
       </div>
