@@ -3,9 +3,22 @@ import './globals.css'
 import StarBackground from './components/StarBackground'
 
 export const metadata: Metadata = {
-  title: 'Fuki Nakamura Portfolio',
-  description: 'Personal portfolio of Fuki Nakamura',
+  title: 'Fuki.N.Port',
+  description: 'Fuki Nakamuraのポートフォリオサイトです',
+  keywords: 'Fuki Nakamura, 中村風稀',
   manifest: '/manifest.json',
+  openGraph: {
+    type: "website",
+    url: "https://fuki-portfolio.vercel.app/",
+    siteName: "Fuki.N.Port",
+    images: [{ url: "/twitterCard.png" }], 
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fuki.N.Port",
+    description: "Fuki Nakamuraのポートフォリオサイトです",
+    images: ["/twitterCard.png"], 
+  },
   icons: {
     icon: [
       { url: '/favicon_ico.ico' },

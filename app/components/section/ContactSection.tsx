@@ -27,17 +27,6 @@ const ContactSection: React.FC = () => {
           </div>
         </a>
         <a
-          href="https://line.me/ti/p/FZeMViLtax"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-gray-300 hover:bg-black/30 hover:opacity-50 p-2 rounded-lg"
-        >
-          <div className="flex gap-4 items-center">
-            <Image src="/icons/line.png" alt="LINE" width={48} height={48} />
-            <p className={`${ShipporiMinchoFont.className} text-2xl md:text-3xl font-bold`}>LINE</p>
-          </div>
-        </a>
-        <a
           href="https://www.instagram.com/kaza_mare?igsh=MWw2bGNra2s5czRkdg=="
           target="_blank"
           rel="noopener noreferrer"
